@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Menu.css';
 
-const Menu = props => {
+const Menu = (props) => {
   const { scrollingLock } = props;
-  return(
-    <div style={{ height: '100vh' }}>
-      <div 
-        className="header" 
-        style={{position: scrollingLock ? "fixed" : "relative"}}>
-        <div className="menu">
-          <a href="#page1">Menu1</a>
-          <a href="#page2">Menu2</a>
-        </div>
-        <div></div>
-        <div className="title">Title</div>
-      </div>
-    </div>
-  )
-}
+  const [scrollingBac, setScrollingBac] = useState(false);
+
+  useEffect(() => {
+    if (!scrollingBac) {
+      window.addEventListener('scroll', handleScroll);
+    }
+  }, [scrollingBac]);
+  const handleScroll = () => {
+    console.log(window.scrollY <= 0);
+    if (window.scrollY > 0) {
+      setScrollingBac(true);
+    } else if (window.scrollY <= 0) {
+      setScrollingBac(false);
+    }
+  };
+
+  return <div style={{ height: '100vh' }}></div>;
+};
 
 export default Menu;
