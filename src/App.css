@@ -27,7 +27,7 @@ img {
   height: inherit;
   width: inherit;
   background-color: black;
-  opacity: 40% !important;
+  opacity: 0.45 !important;
   z-index: 0;
 }
 .d-iisi {
