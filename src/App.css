@@ -21,7 +21,7 @@ img {
   width: 100vw;
   color: white;
 }
-.d-content::before {
+.d-content:before {
   content: '';
   position: absolute;
   height: inherit;
